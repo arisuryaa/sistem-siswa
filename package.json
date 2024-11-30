@@ -1,0 +1,20 @@
+{
+  "name": "sistempelanggaransiswa",
+  "version": "1.0.0",
+  "description": "sistem informasi siswa",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "tailwind" : "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
+  },
+  "author": "dekom",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  }
+}
