@@ -3,17 +3,37 @@ const db = require("../config/db");
 const login = (req, res) => {
   const data = req.body;
   const sql = `SELECT * FROM admin WHERE username = '${data.username}'`;
+
   db.query(sql, (err, result) => {
     if (err) {
-      console.log("ada Error!");
+      console.log("Database Error!");
     }
-    if (data.password == result[0].password) {
+
+    if (result.length === 0) {
+      console.log("username/password salah");
+      return res.render("login", { title: "login", error: true, layout: "layout/admin-layout" });
+    }
+
+    const dataAdmin = result[0];
+    if (data.password == dataAdmin.password) {
       req.session.admin = true;
-      res.send("VALID");
+      res.redirect("/dashboard");
     } else {
-      res.redirect("/");
+      console.log("username/password salah");
+      res.render("login", { title: "login", error: true, layout: "layout/admin-layout" });
     }
   });
 };
 
-module.exports = login;
+const check = (req, res, next) => {
+  if (!req.session.admin) {
+    res.redirect("/");
+  } else {
+    next();
+  }
+};
+
+module.exports = {
+  login,
+  check,
+};

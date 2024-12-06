@@ -3,9 +3,7 @@ const router = express.Router();
 const { login, check } = require("../controller/authLogin");
 
 router.get("/", (req, res) => {
-  res.render("login", { title: "login", error: false, layout: "layout/admin-layout" });
+  res.render("dashboard", { title: "dashboard" });
 });
-
-router.post("/", login);
 
 module.exports = router;
