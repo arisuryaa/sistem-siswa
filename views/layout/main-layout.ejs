@@ -10,7 +10,80 @@
     />
     <link rel="stylesheet" href="/css/output.css" />
   </head>
-  <body class="font-poppins">
+  <body class="font-poppins h-[300vh]">
+    <!-- sidebar -->
+    <div class="fixed top-0 left-0 z-40 h-full p-4 transition-transform border-r-2 w-60 bg-secondary sidebar-menu">
+      <a href="#" class="flex items-center gap-2 mt-4 ml-4 xl:mt-6">
+        <img src="img/Layer_1.svg" alt="" class="w-[13%] mr-2" />
+        <span class="text-xl font-semibold text-secondary">Prima Grosir</span>
+      </a>
+      <ul class="mt-8 xl:mt-12">
+        <li class="mb-1 group active">
+          <div class="flex items-center">
+            <img src="img/Rectangle 17040.svg" class="-ml-4 hidden group-[.active]:block" alt="" />
+            <a href="produk.html" class="flex items-center py-2 ml-2.5 px-4 text-black rounded-lg group-[.active]:text-secondary group-[.selected]:bg-secondary group-[.selected]:text-white">
+              <img src="img/Layer_1 (7).svg" alt="" class="mr-4" />
+              <span class="text-sm font-semibold xl:text-base">Produk</span>
+            </a>
+          </div>
+          <ul class="mt-2 pl-7">
+            <li class="mb-4">
+              <a href="kategori.html" class="text-gray-400 text-sm flex items-center before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Kategory</a>
+            </li>
+          </ul>
+        </li>
+        <li class="mb-1 group">
+          <a href="supplier.html" class="flex items-center py-4 px-4 text-gray-400 rounded-2xl group-hover:text-black group-[.selected]:text-black">
+            <img src="img/Vector.svg" alt="" class="mr-4" />
+            <span class="text-sm font-semibold text-black xl:text-base">Supplier</span>
+          </a>
+        </li>
+
+        <li class="mb-1 group">
+          <a href="inventaris.html" class="flex items-center py-4 px-4 text-gray-400 rounded-2xl group-hover:text-black group-[.selected]:text-black">
+            <img src="img/Layer_1 (3).svg" alt="" class="mr-4" />
+            <span class="text-sm font-semibold text-black xl:text-base">Iventaris</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="staff.html" class="flex items-center py-4 px-4 text-gray-400 rounded-2xl group-hover:text-black group-[.selected]:text-black">
+            <img src="img/Layer_1 (4).svg" alt="" class="mr-4" />
+            <span class="text-sm font-semibold text-black xl:text-base">Staff</span>
+          </a>
+        </li>
+        <li class="mb-1 group">
+          <a href="index.html" class="flex items-center py-4 px-4 text-gray-400 rounded-2xl group-hover:text-black group-[.selected]:text-black">
+            <img src="img/Layer_1 (5).svg" alt="" class="mr-4" />
+            <span class="text-sm font-semibold text-black xl:text-base">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="fixed top-0 left-0 z-30 w-full h-full border border-black bg-black/50 xl:hidden sidebar-overlay"></div>
+
+    <!-- navbar -->
+    <nav class="sticky top-0 left-0 right-0 z-50 flex items-center justify-between w-full px-10 py-3 transition-all bg-body bg-primary shadow-shadowcus">
+      <div class="flex items-center gap-5">
+        <div class="flex items-center gap-2">
+          <img src="/img/logo.svg" alt="" class="w-10 h-auto" />
+          <h1 class="hidden text-white md:block md:text-lg">SMK NEGERI 1 DENPASAR</h1>
+        </div>
+        <button type="button" class="text-lg sidebar-toggle">
+          <i class="text-white cursor-pointer fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div class="flex items-center gap-2 md:gap-7">
+        <div class="flex items-center gap-2">
+          <img src="/img/profil.svg" alt="" class="w-8 h-auto" />
+          <h1 class="hidden text-white md:block md:text-lg">NAMA ADMIN</h1>
+        </div>
+        <a href="" class="px-5 py-1 text-sm text-white transition-all ease-in-out bg-black border-none rounded-md md:px-7 md:text-md hover:bg-opacity-70 shadow-shadowcus">Logout</a>
+      </div>
+    </nav>
+
     <%- body %>
+
+    <script src="/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/676adc8891.js" crossorigin="anonymous"></script>
   </body>
 </html>

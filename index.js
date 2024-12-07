@@ -6,13 +6,14 @@ const port = 3200;
 //  modules
 const expressLayout = require("express-ejs-layouts");
 const session = require("express-session");
-const { check } = require("./controller/authLogin");
+const { check, alreadyLogin } = require("./controller/authLogin");
 
 // express layout ejs
 app.set("view engine", "ejs");
 app.use(expressLayout);
 app.set("layout", "layout/main-layout");
-
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 // routes
 const auth = require("./routes/auth");
 const dashboard = require("./routes/dashboard");
@@ -29,7 +30,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // routing
-app.use("/", auth);
+app.use("/", alreadyLogin, auth);
 app.use("/dashboard", check, dashboard);
 
 app.listen(port, () => {

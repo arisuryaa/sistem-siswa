@@ -18,6 +18,7 @@ const login = (req, res) => {
     if (data.password == dataAdmin.password) {
       req.session.admin = true;
       res.redirect("/dashboard");
+      console.log(req.session.admin);
     } else {
       console.log("username/password salah");
       res.render("login", { title: "login", error: true, layout: "layout/admin-layout" });
@@ -27,13 +28,22 @@ const login = (req, res) => {
 
 const check = (req, res, next) => {
   if (!req.session.admin) {
-    res.redirect("/");
+    return res.redirect("/");
   } else {
     next();
   }
 };
+const alreadyLogin = (req, res, next) => {
+  if (req.session.admin) {
+    if (req.originalUrl !== "/dashboard") {
+      return res.redirect("/dashboard");
+    }
+  }
+  next();
+};
 
 module.exports = {
   login,
+  alreadyLogin,
   check,
 };

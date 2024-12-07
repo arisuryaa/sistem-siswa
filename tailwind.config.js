@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./views/**/*.ejs"],
+  content: ["./views/**/*.ejs", "./js/*.js"],
   theme: {
     extend: {
       backgroundImage: {
@@ -13,6 +13,9 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "serif"],
+      },
+      boxShadow: {
+        shadowcus: "0px 3px 5px rgba(0, 0, 0, 0.25) ",
       },
     },
   },

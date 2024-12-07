@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  width: 90%;
+}
+
+.navbar-fixed {
+  @apply fixed  z-[9999];
+}
+
+.nav-class {
+  @apply xl:text-sm mx-3 lg:mx-4 xl:mx-6 flex py-2 z-50 text-black  md:text-white md:text-xs xl:font-bold relative before:absolute before:bottom-0 before:h-[2px] before:w-0 before:transition-all group-hover:before:w-full;
+}
+
+.scale {
+  @apply transition-all duration-300 hover:scale-105 active:scale-105 brightness-95;
+}
+
+.scale-group {
+  @apply transition-all duration-300 group-hover:scale-105 group-active:scale-105 group-hover:brightness-95;
+}
+
+.overflow {
+  @apply overflow-hidden rounded-xl bg-white;
+}
+
+.overflow-gal {
+  @apply overflow-hidden rounded md:rounded-md xl:rounded-xl;
+}
+
+.img-menu {
+  @apply h-full w-full object-cover rounded transition-transform duration-300 hover:scale-110 md:rounded-md xl:rounded-xl;
+}
+
+.img-gallery {
+  @apply h-full w-full object-cover rounded md:rounded-md xl:rounded-xl transition-transform duration-300 hover:scale-105;
+}
+
+.service-box {
+  @apply w-[35%] sm:w-[18%];
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.color-service {
+  filter: invert(8%) sepia(39%) saturate(717%) hue-rotate(158deg) brightness(100%) contrast(103%);
+}
+
+.notification-tab > .active {
+  @apply text-blue-500 border-b-blue-500 hover:text-blue-500;
+}
+.order-tab > .active {
+  @apply bg-blue-500 text-white hover:text-white;
+}
+.main.active {
+  @apply md:w-full md:ml-0;
+}
+
+.jantuk {
+  @apply overflow-x-auto;
+}
+
+.jantuk::-webkit-scrollbar {
+  display: none;
+}
