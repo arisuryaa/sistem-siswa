@@ -1,0 +1,125 @@
+<main class="mx-8 my-8 transition-all xl:mx-[15rem] xl:px-10 main font-poppins">
+  <div class="flex gap-2 mb-5 text-sm">
+    <a href="/dashboard" class="text-blue-500">Dashboard</a>
+    <a href="/datasiswa">/ Data siswa</a>
+  </div>
+
+  <form action="/datasiswa" method="post">
+    <h1 class="mb-3 text-2xl font-medium text-primary">Pilih Kelas</h1>
+    <div class="flex flex-col gap-5 xl:flex-row">
+      <select name="kelas" id="" class="px-2 py-2 text-xs rounded-md xl:text-sm w-36 shadow-shadowcus">
+        <option value="" class="hidden" disabled selected>Pilih Kelas</option>
+        <option value="X" class="text-[10px] text-white bg-primary xl:text-sm">X</option>
+        <option value="XI" class="text-[10px] text-white bg-primary xl:text-sm">XI</option>
+        <option value="XII" class="text-[10px] text-white bg-primary xl:text-sm">XII</option>
+      </select>
+
+      <select name="jurusan" id="" class="w-64 px-2 py-2 text-sm rounded-md shadow-shadowcus">
+        <option value="" class="hidden" disabled selected>Pilih jurusan</option>
+        <% data.forEach(e => { %>
+        <option value="<%= e.nama_jurusan %>" class="text-[10px] text-white bg-primary xl:text-sm"><%= e.nama_jurusan %></option>
+        <% }) %>
+      </select>
+      <select name="subkelas" id="" class="px-2 py-2 text-sm rounded-md w-36 shadow-shadowcus">
+        <option value="" class="hidden" disabled selected>Pilih Sub Kelas</option>
+        <option value="1" class="text-[10px] text-white bg-primary xl:text-sm">1</option>
+        <option value="2" class="text-[10px] text-white bg-primary xl:text-sm">2</option>
+        <option value="3" class="text-[10px] text-white bg-primary xl:text-sm">3</option>
+      </select>
+      <button type="submit" class="px-2 py-2 text-xs text-white rounded-md shadow-md w-36 bg-secondary">
+        <div class="flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h1>Cari Data Siswa</h1>
+        </div>
+      </button>
+    </div>
+  </form>
+
+  <div class="p-4 xl:p-6">
+    <div class="">
+      <div class="p-4 border-2 border-gray-300 rounded-lg bg-primary xl:px-6">
+        <div class="flex items-center justify-between mt-4 mb-1 xl:mt-6 xl:mb-2">
+          <h1 class="text-lg font-semibold">Data Produk</h1>
+          <p class="font-medium text-sm tracking-wide bg-secondary rounded-sm text-white px-4 py-2.5">Buat Produk Baru</p>
+        </div>
+        <div class="relative jantuk">
+          <table id="example" data-ordering="false" class="justify-center w-full mx-6 mt-6 text-left table-auto -z-50 md:mx-auto">
+            <thead class="border-b-2 border-gray-300">
+              <tr class="justify-between">
+                <th class="font-semibold pr-6 py-3 text-[16px]">Id</th>
+                <th class="font-semibold pr-6 py-3 text-[16px]">Id Produk</th>
+                <th class="font-semibold pr-6 py-3 text-[16px]">Kategori</th>
+                <th class="font-semibold pr-6 py-3 text-[16px]">Produk</th>
+                <th class="font-semibold pr-6 py-3 text-[16px]">Harga</th>
+                <th class="font-semibold pr-6 py-3 text-[16px]">Stock</th>
+                <th class="font-semibold py-3 text-[16px]"></th>
+              </tr>
+            </thead>
+            <tbody class="">
+              <tr class="justify-between">
+                <td class="pr-6 py-3 text-[16px]">01</td>
+                <td class="pr-6 py-3 text-[16px]">1123454</td>
+                <td class="pr-6 py-3 text-[16px]">Makanan</td>
+                <td class="pr-6 py-3 text-[16px]">Pillow</td>
+                <td class="pr-6 py-3 text-[16px]">20.000</td>
+                <td class="pr-6 py-3 text-[16px]">10000</td>
+                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
+                  <img src="img/kotak lihat.svg" alt="" />
+                  <img src="img/kotak hapus.svg" alt="" />
+                </td>
+              </tr>
+              <tr class="">
+                <td class="pr-6 py-3 text-[16px]">02</td>
+                <td class="pr-6 py-3 text-[16px]">1123454</td>
+                <td class="pr-6 py-3 text-[16px]">Minuman</td>
+                <td class="pr-6 py-3 text-[16px]">Teh Botol</td>
+                <td class="pr-6 py-3 text-[16px]">15.000</td>
+                <td class="pr-6 py-3 text-[16px]">10000</td>
+                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
+                  <img src="img/kotak lihat.svg" alt="" />
+                  <img src="img/kotak hapus.svg" alt="" />
+                </td>
+              </tr>
+              <tr class="">
+                <td class="pr-6 py-3 text-[16px]">03</td>
+                <td class="pr-6 py-3 text-[16px]">1123454</td>
+                <td class="pr-6 py-3 text-[16px]">Makanan</td>
+                <td class="pr-6 py-3 text-[16px]">Keripik</td>
+                <td class="pr-6 py-3 text-[16px]">15.000</td>
+                <td class="pr-6 py-3 text-[16px]">10000</td>
+                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
+                  <img src="img/kotak lihat.svg" alt="" />
+                  <img src="img/kotak hapus.svg" alt="" />
+                </td>
+              </tr>
+              <tr class="">
+                <td class="pr-6 py-3 text-[16px]">04</td>
+                <td class="pr-6 py-3 text-[16px]">1123454</td>
+                <td class="pr-6 py-3 text-[16px]">Makanan</td>
+                <td class="pr-6 py-3 text-[16px]">Keripik</td>
+                <td class="pr-6 py-3 text-[16px]">15.000</td>
+                <td class="pr-6 py-3 text-[16px]">10000</td>
+                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
+                  <img src="img/kotak lihat.svg" alt="" />
+                  <img src="img/kotak hapus.svg" alt="" />
+                </td>
+              </tr>
+              <tr class="">
+                <td class="pr-6 py-3 text-[16px]">05</td>
+                <td class="pr-6 py-3 text-[16px]">1123454</td>
+                <td class="pr-6 py-3 text-[16px]">Minuman</td>
+                <td class="pr-6 py-3 text-[16px]">Fruit Tea</td>
+                <td class="pr-6 py-3 text-[16px]">15.000</td>
+                <td class="pr-6 py-3 text-[16px]">10000</td>
+                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
+                  <img src="img/kotak lihat.svg" alt="" />
+                  <img src="img/kotak hapus.svg" alt="" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -6,6 +6,12 @@ router.get("/", (req, res) => {
   res.render("login", { title: "login", error: false, layout: "layout/admin-layout" });
 });
 
+router.get("/logout", (req, res) => {
+  console.log("OKKKKKK");
+  req.session.destroy();
+  res.redirect("/");
+});
+
 router.post("/", login);
 
 module.exports = router;

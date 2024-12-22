@@ -4,6 +4,12 @@ const sidebarOverlay = document.querySelector(".sidebar-overlay");
 const sidebarMenu = document.querySelector(".sidebar-menu");
 const main = document.querySelector(".main");
 
+new DataTable("#example", {
+  info: false,
+  ordering: false,
+  paging: false,
+});
+
 sidebarToggle.addEventListener("click", function (e) {
   e.preventDefault();
   main.classList.toggle("active");

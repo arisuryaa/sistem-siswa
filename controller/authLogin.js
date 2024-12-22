@@ -29,21 +29,11 @@ const login = (req, res) => {
 const check = (req, res, next) => {
   if (!req.session.admin) {
     return res.redirect("/");
-  } else {
-    next();
-  }
-};
-const alreadyLogin = (req, res, next) => {
-  if (req.session.admin) {
-    if (req.originalUrl !== "/dashboard") {
-      return res.redirect("/dashboard");
-    }
   }
   next();
 };
 
 module.exports = {
   login,
-  alreadyLogin,
   check,
 };
