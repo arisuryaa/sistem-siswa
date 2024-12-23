@@ -1,9 +1,10 @@
-<main class="mx-8 my-8 transition-all xl:mx-[15rem] xl:px-10 main font-poppins">
+<main class="mx-8 my-8 transition-all xl:ml-[15rem] xl:px-10 main font-poppins">
   <div class="flex gap-2 mb-5 text-sm">
     <a href="/dashboard" class="text-blue-500">Dashboard</a>
     <a href="/datasiswa">/ Data siswa</a>
   </div>
 
+  <% if (typeof datasiswa == 'undefined') { %>
   <form action="/datasiswa" method="post">
     <h1 class="mb-3 text-2xl font-medium text-primary">Pilih Kelas</h1>
     <div class="flex flex-col gap-5 xl:flex-row">
@@ -34,92 +35,42 @@
       </button>
     </div>
   </form>
-
-  <div class="p-4 xl:p-6">
+  <% } else { %>
+  <div class="table">
+    <h1 class="pb-5 text-2xl font-medium text-primary">DATA SISWA X RPL 1</h1>
     <div class="">
-      <div class="p-4 border-2 border-gray-300 rounded-lg bg-primary xl:px-6">
-        <div class="flex items-center justify-between mt-4 mb-1 xl:mt-6 xl:mb-2">
-          <h1 class="text-lg font-semibold">Data Produk</h1>
-          <p class="font-medium text-sm tracking-wide bg-secondary rounded-sm text-white px-4 py-2.5">Buat Produk Baru</p>
-        </div>
-        <div class="relative jantuk">
-          <table id="example" data-ordering="false" class="justify-center w-full mx-6 mt-6 text-left table-auto -z-50 md:mx-auto">
-            <thead class="border-b-2 border-gray-300">
-              <tr class="justify-between">
-                <th class="font-semibold pr-6 py-3 text-[16px]">Id</th>
-                <th class="font-semibold pr-6 py-3 text-[16px]">Id Produk</th>
-                <th class="font-semibold pr-6 py-3 text-[16px]">Kategori</th>
-                <th class="font-semibold pr-6 py-3 text-[16px]">Produk</th>
-                <th class="font-semibold pr-6 py-3 text-[16px]">Harga</th>
-                <th class="font-semibold pr-6 py-3 text-[16px]">Stock</th>
-                <th class="font-semibold py-3 text-[16px]"></th>
+      <div class="">
+        <div class="relative overflow-x-auto overflow-y-hidden sm:rounded-lg">
+          <table class="w-full overflow-y-hidden text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400" id="example">
+            <thead class="text-xs text-white uppercase bg-secondary">
+              <tr>
+                <th scope="col" class="px-6 py-3">No</th>
+                <th scope="col" class="px-6 py-3">Nama</th>
+                <th scope="col" class="px-6 py-3">Absen</th>
+                <th scope="col" class="px-6 py-3">NIS</th>
+                <th scope="col" class="px-6 py-3">
+                  <span class="sr-only">Detail Siswa</span>
+                </th>
               </tr>
             </thead>
-            <tbody class="">
-              <tr class="justify-between">
-                <td class="pr-6 py-3 text-[16px]">01</td>
-                <td class="pr-6 py-3 text-[16px]">1123454</td>
-                <td class="pr-6 py-3 text-[16px]">Makanan</td>
-                <td class="pr-6 py-3 text-[16px]">Pillow</td>
-                <td class="pr-6 py-3 text-[16px]">20.000</td>
-                <td class="pr-6 py-3 text-[16px]">10000</td>
-                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
-                  <img src="img/kotak lihat.svg" alt="" />
-                  <img src="img/kotak hapus.svg" alt="" />
+            <tbody>
+              <% let no = 1 %> <% datasiswa.forEach(e => { %>
+              <tr class="text-white bg-gray-800 border-b border-gray-700 hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap"><%= no++ %></th>
+                <td class="px-6 py-4"><%= e.nama %></td>
+                <td class="px-6 py-4"><%= e.nomor_absen %></td>
+                <td class="px-6 py-4"><%= e.nis %></td>
+                <td class="px-6 py-4 text-right">
+                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detail</a>
                 </td>
               </tr>
-              <tr class="">
-                <td class="pr-6 py-3 text-[16px]">02</td>
-                <td class="pr-6 py-3 text-[16px]">1123454</td>
-                <td class="pr-6 py-3 text-[16px]">Minuman</td>
-                <td class="pr-6 py-3 text-[16px]">Teh Botol</td>
-                <td class="pr-6 py-3 text-[16px]">15.000</td>
-                <td class="pr-6 py-3 text-[16px]">10000</td>
-                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
-                  <img src="img/kotak lihat.svg" alt="" />
-                  <img src="img/kotak hapus.svg" alt="" />
-                </td>
-              </tr>
-              <tr class="">
-                <td class="pr-6 py-3 text-[16px]">03</td>
-                <td class="pr-6 py-3 text-[16px]">1123454</td>
-                <td class="pr-6 py-3 text-[16px]">Makanan</td>
-                <td class="pr-6 py-3 text-[16px]">Keripik</td>
-                <td class="pr-6 py-3 text-[16px]">15.000</td>
-                <td class="pr-6 py-3 text-[16px]">10000</td>
-                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
-                  <img src="img/kotak lihat.svg" alt="" />
-                  <img src="img/kotak hapus.svg" alt="" />
-                </td>
-              </tr>
-              <tr class="">
-                <td class="pr-6 py-3 text-[16px]">04</td>
-                <td class="pr-6 py-3 text-[16px]">1123454</td>
-                <td class="pr-6 py-3 text-[16px]">Makanan</td>
-                <td class="pr-6 py-3 text-[16px]">Keripik</td>
-                <td class="pr-6 py-3 text-[16px]">15.000</td>
-                <td class="pr-6 py-3 text-[16px]">10000</td>
-                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
-                  <img src="img/kotak lihat.svg" alt="" />
-                  <img src="img/kotak hapus.svg" alt="" />
-                </td>
-              </tr>
-              <tr class="">
-                <td class="pr-6 py-3 text-[16px]">05</td>
-                <td class="pr-6 py-3 text-[16px]">1123454</td>
-                <td class="pr-6 py-3 text-[16px]">Minuman</td>
-                <td class="pr-6 py-3 text-[16px]">Fruit Tea</td>
-                <td class="pr-6 py-3 text-[16px]">15.000</td>
-                <td class="pr-6 py-3 text-[16px]">10000</td>
-                <td class="py-3 text-[16px] flex gap-2 w-10 md:w-auto items-center">
-                  <img src="img/kotak lihat.svg" alt="" />
-                  <img src="img/kotak hapus.svg" alt="" />
-                </td>
-              </tr>
+              <% }) %>
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
+
+  <% } %>
 </main>

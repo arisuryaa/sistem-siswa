@@ -16,8 +16,7 @@ const datajurusan = async () => {
 
 const dataSiswa = (req) => {
   const data = req.body;
-  // console.log(data);
-  const sql = `SELECT nama,nis,email,nama_wali,kontal_wali,kelas,nama_jurusan,subkelas FROM siswa 
+  const sql = `SELECT nama,nis,email,nama_wali,kontal_wali,kelas,nama_jurusan,subkelas,nomor_absen FROM siswa 
   JOIN kelas ON siswa.id_kelas = kelas.id_kelas
   JOIN jurusan ON siswa.id_jurusan = jurusan.id_jurusan
   JOIN subkelas ON siswa.id_subkelas = subkelas.id_subkelas 
