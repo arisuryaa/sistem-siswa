@@ -14,10 +14,12 @@ app.use(expressLayout);
 app.set("layout", "layout/main-layout");
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
+
 // routes
 const auth = require("./routes/auth");
 const dashboard = require("./routes/dashboard");
 const datasiswa = require("./routes/datasiswa");
+const detailsiswa = require("./routes/detailsiswa");
 
 // middleware
 app.use(
@@ -34,6 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", auth);
 app.use("/dashboard", check, dashboard);
 app.use("/datasiswa", datasiswa);
+app.use("/detailsiswa", detailsiswa);
 
 // app.get("/logout", (req, res) => {
 //   console.log("OKKKKKK");
