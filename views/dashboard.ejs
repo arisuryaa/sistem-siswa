@@ -1,3 +1,80 @@
-<div class="transition-all xl:ml-60 main">
-  <h1>tes</h1>
+<div class="flex items-center justify-between px-8 py-6 bg-white rounded-md shadow-shadowcus">
+  <div class="flex flex-col">
+    <div class="flex flex-col gap-1 pb-5">
+      <h1 class="text-3xl font-medium text-secondary">Selamat Datang <%= username %></h1>
+      <p class="font-light text-slate-600">hari ini ada yang melanggar atau berprestasi nih?</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="/pelanggaran" class="px-3 py-2 text-sm text-white transition-all rounded-md shadow-lg bg-primary hover:bg-secondary">Input Pelanggaran</a>
+      <a href="/prestasi" class="px-3 py-2 text-sm text-white transition-all rounded-md shadow-lg bg-primary hover:bg-secondary">Input Prestasi</a>
+    </div>
+  </div>
+  <div class="">
+    <img src="/img/logo.svg" alt="" class="w-[60%] h-auto" />
+  </div>
+</div>
+
+<div class="flex flex-col w-3/4 mt-8">
+  <h1 class="text-lg font-medium text-secondary">Catatan :</h1>
+  <p class="text-sm font-light text-slate-600">
+    Setiap Siswa Diberikan 100 point dan jika siswa melakukan pelanggaran maka point akan dikurangi sejumlah pelanggaran yang dilakukan dan apabila siswa berprestasi maka pont akan ditambah, jika
+    point dari siswa mencapai angka 0 maka guru bk akan mengambil tindakan tegas dengan menghubungi orang tua wali.
+  </p>
+</div>
+
+<div class="mt-8">
+  <h1 class="pb-2 text-lg font-medium text-secondary">Siswa Yang Paling Banyak Melanggar :</h1>
+  <div class="swiper mySwiperss" data-aos="fade-up">
+    <div class="py-2 pb-8 text-white swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
+          <div class="">
+            <img src="img/ucok.svg" class="" alt="" />
+          </div>
+          <div class="flex flex-col gap-1 text-black">
+            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
+            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
+            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
+          <div class="">
+            <img src="img/ucok.svg" class="" alt="" />
+          </div>
+          <div class="flex flex-col gap-1 text-black">
+            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
+            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
+            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
+          <div class="">
+            <img src="img/ucok.svg" class="" alt="" />
+          </div>
+          <div class="flex flex-col gap-1 text-black">
+            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
+            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
+            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
+          <div class="">
+            <img src="img/ucok.svg" class="" alt="" />
+          </div>
+          <div class="flex flex-col gap-1 text-black">
+            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
+            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
+            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-scrollbar"></div>
+  </div>
 </div>

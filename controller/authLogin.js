@@ -17,8 +17,10 @@ const login = (req, res) => {
     const dataAdmin = result[0];
     if (data.password == dataAdmin.password) {
       req.session.admin = true;
+      req.session.username = data.username;
       res.redirect("/dashboard");
       console.log(req.session.admin);
+      console.log(req.session.username);
     } else {
       console.log("username/password salah");
       res.render("login", { title: "login", error: true, layout: "layout/admin-layout" });

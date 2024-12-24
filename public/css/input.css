@@ -23,3 +23,11 @@
   background-color: #4a70a5;
   color: white;
 }
+
+.swiper-pagination .swiper-pagination-bullet {
+  @apply bg-secondary;
+}
+
+.swiper-scrollbar .swiper-scrollbar-drag {
+  @apply bg-primary;
+}
