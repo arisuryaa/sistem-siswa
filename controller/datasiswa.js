@@ -2,7 +2,6 @@ const db = require("../config/db");
 
 const datajurusan = async () => {
   const sql = `SELECT * FROM jurusan`;
-
   return new Promise((resolve, reject) => {
     db.query(sql, (err, result) => {
       if (err) {
@@ -53,4 +52,20 @@ const detailSiswa = (id) => {
   });
 };
 
-module.exports = { datajurusan, dataSiswa, detailSiswa };
+const siswaByPoint = () => {
+  const sql = `SELECT * FROM siswa
+ORDER BY point ASC
+LIMIT 5;
+`;
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { datajurusan, dataSiswa, detailSiswa, siswaByPoint };

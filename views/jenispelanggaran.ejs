@@ -1,0 +1,55 @@
+<div class="flex gap-2 mb-5 text-sm">
+  <a href="/dashboard" class="text-blue-500">Dashboard</a>
+  <a href="/jenispelanggaran">/ jenis pelanggaran</a>
+</div>
+
+<% if (typeof datajenis == 'undefined') { %>
+<form action="/jenispelanggaran" method="post">
+  <h1 class="mb-3 text-2xl font-medium text-primary">Pilih Jenis Pelanggaran</h1>
+  <div class="flex flex-col gap-5 xl:flex-row">
+    <select name="nama_kategori" id="" class="w-64 px-2 py-2 text-sm rounded-md shadow-shadowcus">
+      <option value="" class="hidden" disabled selected>Jenis Pelanggaran</option>
+      <% data.forEach(e => { %>
+      <option value="<%= e.nama_kategori %>" class="text-[10px] text-white bg-primary xl:text-sm"><%= e.nama_kategori %></option>
+      <% }) %>
+    </select>
+
+    <button type="submit" class="px-2 py-2 text-xs text-white rounded-md shadow-md w-36 bg-secondary">
+      <div class="flex items-center justify-center gap-2">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h1>Cari Data Siswa</h1>
+      </div>
+    </button>
+  </div>
+</form>
+<% } else { %>
+<div class="table">
+  <h1 class="pb-5 text-2xl font-medium uppercase text-primary">JENIS PELANGGARAN KATEGORI <%= datajenis[0].nama_kategori %></h1>
+  <div class="">
+    <div class="">
+      <div class="relative overflow-x-auto overflow-y-hidden sm:rounded-lg">
+        <table class="w-full overflow-y-hidden text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400" id="example">
+          <thead class="text-xs text-white uppercase bg-secondary">
+            <tr>
+              <th scope="col" class="px-6 py-3">No</th>
+              <th scope="col" class="px-6 py-3">Kategori</th>
+              <th scope="col" class="px-6 py-3">Sub Kategori</th>
+              <th scope="col" class="px-6 py-3">Point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let x = 1 %> <% datajenis.forEach(e => { %>
+            <tr class="text-white bg-gray-800 border-b border-gray-700 hover:bg-gray-600">
+              <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap"><%= x %></th>
+              <td class="px-6 py-4"><%= e.nama_kategori %></td>
+              <td class="px-6 py-4"><%= e.nama_pelanggaran %></td>
+              <td class="px-6 py-4"><%= e.point %></td>
+            </tr>
+            <% x++ %> <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

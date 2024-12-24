@@ -20,6 +20,7 @@ const auth = require("./routes/auth");
 const dashboard = require("./routes/dashboard");
 const datasiswa = require("./routes/datasiswa");
 const detailsiswa = require("./routes/detailsiswa");
+const jenispelanggaran = require("./routes/jenispelanggaran");
 
 // middleware
 app.use(
@@ -37,6 +38,7 @@ app.use("/", auth);
 app.use("/dashboard", check, dashboard);
 app.use("/datasiswa", datasiswa);
 app.use("/detailsiswa", detailsiswa);
+app.use("/jenispelanggaran", jenispelanggaran);
 
 // app.get("/logout", (req, res) => {
 //   console.log("OKKKKKK");

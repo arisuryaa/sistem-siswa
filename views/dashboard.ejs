@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <div class="flex flex-col gap-1 pb-5">
       <h1 class="text-3xl font-medium text-secondary">Selamat Datang <%= username %></h1>
-      <p class="font-light text-slate-600">hari ini ada yang melanggar atau berprestasi nih?</p>
+      <p class="font-light text-slate-600">ABYASAD DHARYATI VIDYA</p>
     </div>
     <div class="flex items-center gap-3">
       <a href="/pelanggaran" class="px-3 py-2 text-sm text-white transition-all rounded-md shadow-lg bg-primary hover:bg-secondary">Input Pelanggaran</a>
@@ -26,54 +26,20 @@
   <h1 class="pb-2 text-lg font-medium text-secondary">Siswa Yang Paling Banyak Melanggar :</h1>
   <div class="swiper mySwiperss" data-aos="fade-up">
     <div class="py-2 pb-8 text-white swiper-wrapper">
+      <% data.forEach(e => { %>
       <div class="swiper-slide">
-        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
-          <div class="">
-            <img src="img/ucok.svg" class="" alt="" />
+        <div class="flex justify-between items-center gap-5 px-5 bg-white rounded-md shadow-shadowcus w-[100%] h-40">
+          <div class="w-[40%] h-full flex items-center">
+            <img src="img/ucok.svg" class="w-full h-full" alt="" />
           </div>
-          <div class="flex flex-col gap-1 text-black">
-            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
+          <div class="flex flex-col gap-1 text-black w-[60%] h-full justify-center">
+            <h1 class="text-sm font-semibold text-secondary"><%= e.nama %></h1>
             <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
-            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
+            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500"><%= e.point %></span></h1>
           </div>
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
-          <div class="">
-            <img src="img/ucok.svg" class="" alt="" />
-          </div>
-          <div class="flex flex-col gap-1 text-black">
-            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
-            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
-            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
-          <div class="">
-            <img src="img/ucok.svg" class="" alt="" />
-          </div>
-          <div class="flex flex-col gap-1 text-black">
-            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
-            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
-            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="flex justify-between items-center gap-5 px-5 py-5 bg-white rounded-md shadow-shadowcus w-[100%]">
-          <div class="">
-            <img src="img/ucok.svg" class="" alt="" />
-          </div>
-          <div class="flex flex-col gap-1 text-black">
-            <h1 class="text-base font-semibold text-secondary">NGAKAN NYOMAN ARI SURYA KHRISNA</h1>
-            <P class="text-xs">XII REKAYASA PERANGKAT LUNAK 3</P>
-            <h1 class="pt-4 text-sm">Jumlah Point : <span class="text-red-500">10</span></h1>
-          </div>
-        </div>
-      </div>
+      <% }) %>
     </div>
     <div class="swiper-scrollbar"></div>
   </div>
