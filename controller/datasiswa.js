@@ -68,4 +68,21 @@ LIMIT 5;
   });
 };
 
-module.exports = { datajurusan, dataSiswa, detailSiswa, siswaByPoint };
+const siswaByNis = (nis) => {
+  const sql = `SELECT  * FROM siswa
+  JOIN kelas ON siswa.id_kelas = kelas.id_kelas
+  JOIN jurusan ON siswa.id_jurusan = jurusan.id_jurusan
+  JOIN subkelas ON siswa.id_subkelas = subkelas.id_subkelas 
+   WHERE nis = '${nis}' `;
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { datajurusan, dataSiswa, detailSiswa, siswaByPoint, siswaByNis };

@@ -5,7 +5,7 @@
 
 <% if (typeof datajenis == 'undefined') { %>
 <form action="/jenispelanggaran" method="post">
-  <h1 class="mb-3 text-2xl font-medium text-primary">Pilih Jenis Pelanggaran</h1>
+  <h1 class="mb-3 text-2xl font-medium text-primary">Pilih Kategori Pelanggaran</h1>
   <div class="flex flex-col gap-5 xl:flex-row">
     <select name="nama_kategori" id="" class="w-64 px-2 py-2 text-sm rounded-md shadow-shadowcus">
       <option value="" class="hidden" disabled selected>Jenis Pelanggaran</option>
@@ -14,10 +14,10 @@
       <% }) %>
     </select>
 
-    <button type="submit" class="px-2 py-2 text-xs text-white rounded-md shadow-md w-36 bg-secondary">
+    <button type="submit" class="w-48 px-2 py-2 text-xs text-white rounded-md shadow-md bg-secondary">
       <div class="flex items-center justify-center gap-2">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <h1>Cari Data Siswa</h1>
+        <h1>Lihat jenis pelanggaran</h1>
       </div>
     </button>
   </div>

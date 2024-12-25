@@ -7,9 +7,9 @@ router.get("/", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  console.log("OKKKKKK");
   req.session.destroy();
   res.redirect("/");
+  console.log("Admin Logout Success");
 });
 
 router.post("/", login);

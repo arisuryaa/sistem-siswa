@@ -1,0 +1,97 @@
+<div class="flex gap-2 mb-5 text-sm">
+  <a href="/dashboard" class="text-blue-500">Dashboard</a>
+  <a href="/pelanggaran">/ Cari Siswa</a>
+</div>
+
+<% if (typeof datasiswa == 'undefined') { %>
+<div class="mt-8">
+  <form action="/pelanggaran/nis" method="post">
+    <h1 class="mb-3 text-2xl font-medium text-primary">Cari Siswa Berdasarkan NIS</h1>
+    <div class="flex flex-col gap-5 xl:flex-row">
+      <input
+        required
+        type="text"
+        name="NIS"
+        placeholder="Masukkan NIS Siswa"
+        class="w-64 px-2 py-2 text-sm transition-all duration-200 ease-in-out rounded-md shadow-shadowcus placeholder:text-slate-500 focus:outline-primary"
+      />
+
+      <button type="submit" class="w-auto px-4 py-2 text-xs text-white rounded-md shadow-md bg-secondary">
+        <div class="flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h1>Cari Siswa</h1>
+        </div>
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="mt-16">
+  <form action="/pelanggaran" method="post">
+    <h1 class="mb-3 text-2xl font-medium text-primary">Cari Siswa Berdasarkan Kelas</h1>
+    <div class="flex flex-col gap-5 xl:flex-row">
+      <select name="kelas" id="" class="px-2 py-2 text-xs rounded-md xl:text-sm w-36 shadow-shadowcus">
+        <option value="" class="hidden" disabled selected>Pilih Kelas</option>
+        <option value="X" class="text-[10px] text-white bg-primary xl:text-sm">X</option>
+        <option value="XI" class="text-[10px] text-white bg-primary xl:text-sm">XI</option>
+        <option value="XII" class="text-[10px] text-white bg-primary xl:text-sm">XII</option>
+      </select>
+
+      <select name="jurusan" id="" class="w-64 px-2 py-2 text-sm rounded-md shadow-shadowcus">
+        <option value="" class="hidden" disabled selected>Pilih jurusan</option>
+        <% data.forEach(e => { %>
+        <option value="<%= e.nama_jurusan %>" class="text-[10px] text-white bg-primary xl:text-sm"><%= e.nama_jurusan %></option>
+        <% }) %>
+      </select>
+      <select name="subkelas" id="" class="px-2 py-2 text-sm rounded-md w-36 shadow-shadowcus">
+        <option value="" class="hidden" disabled selected>Pilih Sub Kelas</option>
+        <option value="1" class="text-[10px] text-white bg-primary xl:text-sm">1</option>
+        <option value="2" class="text-[10px] text-white bg-primary xl:text-sm">2</option>
+        <option value="3" class="text-[10px] text-white bg-primary xl:text-sm">3</option>
+      </select>
+      <button type="submit" class="px-2 py-2 text-xs text-white rounded-md shadow-md w-36 bg-secondary">
+        <div class="flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h1>Cari Kelas Siswa</h1>
+        </div>
+      </button>
+    </div>
+  </form>
+</div>
+
+<% } else { %>
+<div class="table">
+  <h1 class="pb-5 text-2xl font-medium text-primary">DATA SISWA <%= kelas.kelas %> <%= kelas.jurusan%> <%= kelas.subkelas %></h1>
+  <div class="">
+    <div class="">
+      <div class="relative overflow-x-auto overflow-y-hidden sm:rounded-lg">
+        <table class="w-full overflow-y-hidden text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400" id="example">
+          <thead class="text-xs text-white uppercase bg-secondary">
+            <tr>
+              <th scope="col" class="px-6 py-3">No Absen</th>
+              <th scope="col" class="px-6 py-3">Nama</th>
+              <th scope="col" class="px-6 py-3">NIS</th>
+              <th scope="col" class="px-6 py-3">
+                <span class="sr-only">Detail Siswa</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% datasiswa.forEach(e => { %>
+            <tr class="text-white bg-gray-800 border-b border-gray-700 hover:bg-gray-600">
+              <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap"><%= e.nomor_absen %></th>
+              <td class="px-6 py-4"><%= e.nama %></td>
+              <td class="px-6 py-4"><%= e.nis %></td>
+              <td class="px-6 py-4 text-right">
+                <a href="/inputpelanggaran/<%= e.id_siswa %>" class="px-5 py-2 font-medium text-white bg-red-500 rounded-md hover:underline">Proses</a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% } %>

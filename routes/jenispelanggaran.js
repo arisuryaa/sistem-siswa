@@ -16,7 +16,6 @@ router.post("/", async (req, res) => {
   try {
     const data = await dataKategori();
     const datajenispelanggaran = await jenispelanggaran(req);
-    console.log(datajenispelanggaran);
     res.render("jenispelanggaran", { title: "jenis-pelanggaran", data: data, datajenis: datajenispelanggaran });
   } catch (err) {
     res.send(err);
