@@ -48,4 +48,18 @@ const inputPelanggaran = async (alldata) => {
   });
 };
 
-module.exports = { inputPelanggaran };
+const riwayatPelanggaran = () => {
+  const sql = `SELECT tanggal,nama,nama_pelanggaran,username,point FROM pelanggaran JOIN siswa ON pelanggaran.id_siswa = siswa.id_siswa JOIN subkategori_pelanggaran ON pelanggaran.id_subkategori = subkategori_pelanggaran.id_subkategori JOIN admin ON pelanggaran.admin_penginput = admin.id_admin;`;
+
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { inputPelanggaran, riwayatPelanggaran };
