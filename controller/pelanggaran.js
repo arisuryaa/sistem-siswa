@@ -16,7 +16,10 @@ const admin = (username) => {
 const inputPelanggaran = async (alldata) => {
   const { data, session } = alldata;
 
-  let newPoint = data.point < data.pengurangan_point ? 0 : data.point - data.pengurangan_point;
+  const point = Number(data.point);
+  const penguranganPoint = Number(data.pengurangan_point);
+
+  const newPoint = point < penguranganPoint ? 0 : point - penguranganPoint;
 
   const id_admin = await admin(session);
   console.log(id_admin[0].id_admin);

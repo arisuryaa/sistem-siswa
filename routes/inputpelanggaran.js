@@ -9,11 +9,10 @@ router.get("/:id", async (req, res) => {
     const id = req.params.id;
     const data = await detailSiswa(id);
     const jenispelanggaran = await allJenispelanggaran();
-    console.log(data);
-    console.log(jenispelanggaran);
     res.render("input-pelanggaran", { title: "input-pelanggaran", data: data[0], jenispelanggaran: jenispelanggaran });
+    console.log(data[0]);
   } catch (err) {
-    res.send(err);
+    res.status(500).send("Terjadi kesalahan: " + err);
   }
 });
 
@@ -24,7 +23,8 @@ router.post("/", async (req, res) => {
     const allData = { data, session };
     const datajurusan2 = await datajurusan();
     const result = await inputPelanggaran(allData);
-    res.render("pelanggaran", { title: "pelanggaran", data: datajurusan2, result: true });
+    console.log(result);
+    res.render("pelanggaran", { title: "pelanggaran", data: datajurusan2, result: result });
   } catch (err) {
     res.send(err);
     console.log(err);
