@@ -137,3 +137,9 @@ const swipersss = new Swiper(".mySwipersss", {
     },
   },
 });
+
+const openModal = (id_subkategori, point) => {
+  document.querySelector("#subkategori").value = id_subkategori;
+  document.querySelector("#point").value = point;
+  document.getElementById("my_modal_3").showModal();
+};

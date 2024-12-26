@@ -46,9 +46,9 @@
               <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap"><%= x %></th>
               <td class="px-6 py-4"><%= e.nama_kategori %></td>
               <td class="px-6 py-4"><%= e.nama_pelanggaran %></td>
-              <td class="px-6 py-4"><%= e.point %></td>
+              <td class="px-6 py-4"><%= e.pengurangan_point %></td>
               <td class="px-6 py-4 text-right">
-                <a href="/inputpelanggaran" class="px-5 py-2 font-medium text-white bg-red-500 rounded-md hover:underline">Proses</a>
+                <button class="text-white btn btn-error" id="buttonJeniPelanggaran" onclick="openModal( '<%= e.id_subkategori %>', '<%= e.pengurangan_point %>' )">Proses</button>
               </td>
             </tr>
             <% x++ %> <% }) %>
@@ -58,3 +58,19 @@
     </div>
   </div>
 </div>
+
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
+    </form>
+    <h3 class="mb-4 text-lg font-bold">Apakah Anda Yakin Akan Memproses Pelanggaran?</h3>
+    <form action="/inputpelanggaran" method="post">
+      <input type="hidden" name="id_subkategori" id="subkategori" />
+      <input type="hidden" name="pengurangan_point" id="point" />
+      <input type="hidden" name="id_siswa" value="<%= data.id_siswa %>" />
+      <input type="hidden" name="point" value="<%= data.point %>" />
+      <button type="submit" class="px-5 py-2 text-sm text-white bg-red-500 rounded-md hover:bg-red-700">Iya Lanjut</button>
+    </form>
+  </div>
+</dialog>
