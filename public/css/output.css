@@ -970,6 +970,12 @@ html {
   opacity: 1;
 }
 
+.modal-action {
+  display: flex;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}
+
 :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
   overflow: hidden;
   scrollbar-gutter: stable;
@@ -1398,6 +1404,12 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.modal-action > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 @keyframes modal-pop {
   0% {
     opacity: 0;
@@ -1778,10 +1790,6 @@ html {
 
 .w-2\/5 {
   width: 40%;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .w-36 {
@@ -2397,6 +2405,10 @@ html {
 .swiper-scrollbar .swiper-scrollbar-drag {
   --tw-bg-opacity: 1;
   background-color: rgb(74 112 165 / var(--tw-bg-opacity, 1));
+}
+
+.modal[open] {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .placeholder\:bg-white::-moz-placeholder {

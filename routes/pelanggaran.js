@@ -6,7 +6,7 @@ const { allJenispelanggaran } = require("../controller/datakategoripelanggaran")
 router.get("/", async (req, res) => {
   try {
     const data = await datajurusan();
-    res.render("pelanggaran", { title: "pelanggaran", data: data });
+    res.render("pelanggaran", { title: "pelanggaran", data: data, result: false });
   } catch (err) {
     res.send(err);
   }

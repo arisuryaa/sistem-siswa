@@ -14,14 +14,6 @@
   </div>
 </div>
 
-<div class="flex flex-col w-3/4 mt-8">
-  <h1 class="text-lg font-medium text-secondary">Catatan :</h1>
-  <p class="text-sm font-light text-slate-600">
-    Setiap Siswa Diberikan 100 point dan jika siswa melakukan pelanggaran maka point akan dikurangi sejumlah pelanggaran yang dilakukan dan apabila siswa berprestasi maka pont akan ditambah, jika
-    point dari siswa mencapai angka 0 maka guru bk akan mengambil tindakan tegas dengan menghubungi orang tua wali.
-  </p>
-</div>
-
 <div class="mt-8">
   <h1 class="pb-2 text-lg font-medium text-secondary">Siswa Yang Paling Banyak Melanggar :</h1>
   <div class="swiper mySwiperss" data-aos="fade-up">
@@ -44,3 +36,16 @@
     <div class="swiper-scrollbar"></div>
   </div>
 </div>
+
+<% if (result === true ) { %>
+<dialog open class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
+    </form>
+    <h3 class="text-lg font-bold">Selamat datang!</h3>
+    <p class="py-4">Modal ini muncul langsung tanpa perlu tombol.</p>
+  </div>
+</dialog>
+
+<% } %>

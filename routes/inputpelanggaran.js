@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { detailSiswa } = require("../controller/datasiswa");
+const { detailSiswa, datajurusan } = require("../controller/datasiswa");
 const { allJenispelanggaran } = require("../controller/datakategoripelanggaran");
 const { inputPelanggaran } = require("../controller/pelanggaran");
+
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -21,10 +22,12 @@ router.post("/", async (req, res) => {
     const session = req.session.username;
     const data = req.body;
     const allData = { data, session };
+    const datajurusan2 = await datajurusan();
     const result = await inputPelanggaran(allData);
-    res.send(result);
+    res.render("pelanggaran", { title: "pelanggaran", data: datajurusan2, result: true });
   } catch (err) {
     res.send(err);
+    console.log(err);
   }
 });
 

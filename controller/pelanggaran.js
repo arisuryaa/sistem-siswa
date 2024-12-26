@@ -37,7 +37,7 @@ const inputPelanggaran = async (alldata) => {
           if (err) {
             reject(err);
           } else {
-            resolve(result);
+            resolve(true);
           }
         });
       }
