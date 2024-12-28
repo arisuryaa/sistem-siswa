@@ -1,0 +1,75 @@
+<div class="flex gap-2 mb-5 text-sm">
+  <a href="/pelanggaran" class="text-blue-500">Cari Siswa</a>
+  <a href="/inputpelanggaran">/ Input Prestasi</a>
+</div>
+
+<div class="mt-8">
+  <div class="flex flex-col">
+    <h1 class="text-2xl font-medium text-secondary">Prestasi Siswa</h1>
+
+    <div class="flex gap-5 w-[60%] h-auto mt-6 border-2 border-secondary px-4 py-6 rounded-md">
+      <div class="w-[25%] h-auto">
+        <img src="/img/ucok.svg" class="" alt="" />
+      </div>
+      <div class="flex flex-col justify-between h-auto gap-1 text-black">
+        <div class="flex flex-col gap-1">
+          <h1 class="text-xl font-medium text-secondary"><%= data.nama %></h1>
+          <P class="text-sm"><%= data.kelas %> <%= data.nama_jurusan %> <%= data.subkelas %></P>
+          <P class="text-sm"><%= data.nis %></P>
+        </div>
+        <h1 class="text-sm">Jumlah Point : <span class="text-red-500"><%= data.point %></span></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="table mt-8">
+  <h1 class="pb-5 text-2xl font-medium uppercase text-primary">Input Prestasi</h1>
+
+  <form id="prestasiForm" class="pr-3" action="/inputprestasi" method="post">
+    <input type="hidden" name="id_siswa" id="" value="<%= data.id_siswa %>" />
+    <input type="hidden" name="point" id="" value="<%= data.point %>" />
+    <div class="flex items-center justify-between pb-7">
+      <div class="flex flex-col w-1/2 gap-2">
+        <label for="nama_prestasi" class="text-base">Masukkan Nama Prestasi : </label>
+        <input type="text" id="nama_prestasi" name="nama_prestasi" class="bg-[#EDF2F7] h-10 rounded-md px-3" placeholder="cth : Juara 1 lomba matematika" />
+      </div>
+      <div class="w-[45%] flex flex-col gap-2">
+        <label for="penambahan_point" class="text-base">Pilih Point Penambahan</label>
+        <select id="penambahan_point" name="penambahan_point" class="bg-[#EDF2F7] h-10 rounded-md px-3">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+          <option value="35">35</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="catatan" class="text-base">Masukkan Catatan (opsional) </label>
+      <textarea
+        id="catatan"
+        name="catatan"
+        class="bg-[#EDF2F7] h-32 rounded-md px-3 py-2"
+        rows="3"
+        placeholder="cth : mendapat penambahan point maksimal karena menjadi satu satunya siswa yang juara di bali"
+      ></textarea>
+    </div>
+    <!-- Open the modal using ID.showModal() method -->
+    <button type="button" class="mt-5 text-white btn btn-success" id="openModalButton">Konfirmasi</button>
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-xl font-bold text-secondary">Konfirmasi</h3>
+        <p class="py-4">Apakah Anda yakin ingin menyimpan data ini?</p>
+        <div class="modal-action">
+          <button type="button" class="btn" id="submitFormButton">Simpan</button>
+          <button type="button" class="btn" id="closeModalButton">Batal</button>
+        </div>
+      </div>
+    </dialog>
+  </form>
+</div>

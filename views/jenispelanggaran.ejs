@@ -34,7 +34,7 @@
               <th scope="col" class="px-6 py-3">No</th>
               <th scope="col" class="px-6 py-3">Kategori</th>
               <th scope="col" class="px-6 py-3">Sub Kategori</th>
-              <th scope="col" class="px-6 py-3">Point</th>
+              <th scope="col" class="px-6 py-3">Pengurangan Point</th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +43,7 @@
               <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap"><%= x %></th>
               <td class="px-6 py-4"><%= e.nama_kategori %></td>
               <td class="px-6 py-4"><%= e.nama_pelanggaran %></td>
-              <td class="px-6 py-4"><%= e.point %></td>
+              <td class="px-6 py-4"><%= e.pengurangan_point %></td>
             </tr>
             <% x++ %> <% }) %>
           </tbody>

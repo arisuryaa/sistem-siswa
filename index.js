@@ -24,6 +24,8 @@ const jenispelanggaran = require("./routes/jenispelanggaran");
 const pelanggaran = require("./routes/pelanggaran");
 const inputpelanggaran = require("./routes/inputpelanggaran");
 const riwayatpelanggaran = require("./routes/riwayatpelanggaran");
+const prestasi = require("./routes/prestasi");
+const inputprestasi = require("./routes/inputprestasi");
 
 // middleware
 app.use(
@@ -45,6 +47,8 @@ app.use("/jenispelanggaran", jenispelanggaran);
 app.use("/pelanggaran", pelanggaran);
 app.use("/inputpelanggaran", inputpelanggaran);
 app.use("/riwayatpelanggaran", riwayatpelanggaran);
+app.use("/prestasi", prestasi);
+app.use("/inputprestasi", inputprestasi);
 
 app.listen(port, () => {
   console.log(`server running on http://localhost:${port}`);

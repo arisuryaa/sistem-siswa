@@ -1,12 +1,12 @@
 <div class="flex gap-2 mb-5 text-sm">
   <a href="/dashboard" class="text-blue-500">Dashboard /</a>
-  <a href="/pelanggaran" class="text-blue-500">Pelanggaran</a>
+  <a href="/prestasi" class="text-blue-500">Prestasi</a>
   <a href="">/ Cari Siswa</a>
 </div>
 
 <% if (typeof datasiswa == 'undefined') { %>
 <div class="mt-8">
-  <form action="/pelanggaran/nis" method="post">
+  <form action="/prestasi/nis" method="post">
     <h1 class="mb-3 text-2xl font-medium text-primary">Cari Siswa Berdasarkan NIS</h1>
     <div class="flex flex-col gap-5 xl:flex-row">
       <input
@@ -28,7 +28,7 @@
 </div>
 
 <div class="mt-16">
-  <form action="/pelanggaran" method="post">
+  <form action="/prestasi" method="post">
     <h1 class="mb-3 text-2xl font-medium text-primary">Cari Siswa Berdasarkan Kelas</h1>
     <div class="flex flex-col gap-5 xl:flex-row">
       <select name="kelas" id="" class="px-2 py-2 text-xs rounded-md xl:text-sm w-36 shadow-shadowcus">
@@ -84,7 +84,7 @@
               <td class="px-6 py-4"><%= e.nama %></td>
               <td class="px-6 py-4"><%= e.nis %></td>
               <td class="px-6 py-4 text-right">
-                <a href="/inputpelanggaran/<%= e.id_siswa %>" class="px-5 py-2 font-medium text-white bg-red-500 rounded-md hover:underline">Proses</a>
+                <a href="/inputprestasi/<%= e.id_siswa %>" class="text-white btn btn-success">Proses</a>
               </td>
             </tr>
             <% }) %>
@@ -101,8 +101,8 @@
 
 <dialog id="my_modal_1" open class="modal">
   <div class="modal-box">
-    <h3 class="text-xl font-bold text-secondary">PELANGGARAN SISWA BERHASIL DI INPUT !</h3>
-    <p class="py-4">Perhatikan Point Siswa Yang Melanggar!</p>
+    <h3 class="text-xl font-bold text-secondary">PRESTASI SISWA BERHASIL DI INPUT !</h3>
+    <p class="py-4">Perhatikan Point Siswa</p>
     <div class="modal-action">
       <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->

@@ -49,7 +49,7 @@ const inputPelanggaran = async (alldata) => {
 };
 
 const riwayatPelanggaran = () => {
-  const sql = `SELECT tanggal,nama,nama_pelanggaran,username,point FROM pelanggaran JOIN siswa ON pelanggaran.id_siswa = siswa.id_siswa JOIN subkategori_pelanggaran ON pelanggaran.id_subkategori = subkategori_pelanggaran.id_subkategori JOIN admin ON pelanggaran.admin_penginput = admin.id_admin;`;
+  const sql = `SELECT tanggal,nama,nama_pelanggaran,username,point FROM pelanggaran JOIN siswa ON pelanggaran.id_siswa = siswa.id_siswa JOIN subkategori_pelanggaran ON pelanggaran.id_subkategori = subkategori_pelanggaran.id_subkategori JOIN admin ON pelanggaran.admin_penginput = admin.id_admin ORDER BY tanggal DESC;`;
 
   return new Promise((resolve, reject) => {
     db.query(sql, (err, result) => {

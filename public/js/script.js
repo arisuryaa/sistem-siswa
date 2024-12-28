@@ -143,3 +143,24 @@ const openModal = (id_subkategori, point) => {
   document.querySelector("#point").value = point;
   document.getElementById("my_modal_3").showModal();
 };
+
+const form = document.getElementById("prestasiForm");
+const modal = document.getElementById("my_modal_1");
+const openModalButton = document.getElementById("openModalButton");
+const submitFormButton = document.getElementById("submitFormButton");
+const closeModalButton = document.getElementById("closeModalButton");
+
+// Event untuk membuka modal
+openModalButton.addEventListener("click", () => {
+  modal.showModal();
+});
+
+// Event untuk menutup modal
+closeModalButton.addEventListener("click", () => {
+  modal.close();
+});
+
+// Event untuk submit form
+submitFormButton.addEventListener("click", () => {
+  form.submit(); // Kirim form secara manual
+});
