@@ -26,6 +26,7 @@ const inputpelanggaran = require("./routes/inputpelanggaran");
 const riwayatpelanggaran = require("./routes/riwayatpelanggaran");
 const prestasi = require("./routes/prestasi");
 const inputprestasi = require("./routes/inputprestasi");
+const riwayatprestasi = require("./routes/riwayatprestasi");
 
 // middleware
 app.use(
@@ -41,14 +42,15 @@ app.use(express.urlencoded({ extended: true }));
 // routing
 app.use("/", auth);
 app.use("/dashboard", check, dashboard);
-app.use("/datasiswa", datasiswa);
-app.use("/detailsiswa", detailsiswa);
-app.use("/jenispelanggaran", jenispelanggaran);
-app.use("/pelanggaran", pelanggaran);
-app.use("/inputpelanggaran", inputpelanggaran);
-app.use("/riwayatpelanggaran", riwayatpelanggaran);
-app.use("/prestasi", prestasi);
-app.use("/inputprestasi", inputprestasi);
+app.use("/datasiswa", check, datasiswa);
+app.use("/detailsiswa", check, detailsiswa);
+app.use("/jenispelanggaran", check, jenispelanggaran);
+app.use("/pelanggaran", check, pelanggaran);
+app.use("/inputpelanggaran", check, inputpelanggaran);
+app.use("/riwayatpelanggaran", check, riwayatpelanggaran);
+app.use("/prestasi", check, prestasi);
+app.use("/inputprestasi", check, inputprestasi);
+app.use("/riwayatprestasi", check, riwayatprestasi);
 
 app.listen(port, () => {
   console.log(`server running on http://localhost:${port}`);

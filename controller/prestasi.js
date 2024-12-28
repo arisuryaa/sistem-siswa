@@ -48,4 +48,18 @@ const inputPrestasi = async (alldata) => {
   });
 };
 
-module.exports = { inputPrestasi };
+const riwayatprestasi = () => {
+  const sql = `SELECT tanggal,nama,nama_prestasi,username,point FROM prestasi JOIN siswa ON prestasi.id_siswa = siswa.id_siswa JOIN admin ON prestasi.admin_penginput = admin.id_admin ORDER BY tanggal DESC;`;
+
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { inputPrestasi, riwayatprestasi };
