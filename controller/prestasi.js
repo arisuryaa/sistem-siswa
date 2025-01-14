@@ -62,4 +62,17 @@ const riwayatprestasi = () => {
   });
 };
 
-module.exports = { inputPrestasi, riwayatprestasi };
+const detailprestasi = (id) => {
+  const sql = `SELECT nama_prestasi,username,penambahan_point,tanggal,catatan FROM prestasi JOIN admin ON prestasi.admin_penginput = admin.id_admin WHERE id_siswa = ${id}`;
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { inputPrestasi, riwayatprestasi, detailprestasi };
