@@ -62,4 +62,41 @@ const riwayatPelanggaran = () => {
   });
 };
 
-module.exports = { inputPelanggaran, riwayatPelanggaran };
+const detailpelanggaran = (id) => {
+  const sql = `SELECT 
+    pelanggaran.id_siswa,
+    pelanggaran.tanggal,
+    siswa.nama AS nama_siswa,
+    subkategori_pelanggaran.nama_pelanggaran,
+    admin.username AS admin_penginput,
+    pengurangan_point
+FROM 
+    pelanggaran
+JOIN 
+    siswa 
+ON 
+    pelanggaran.id_siswa = siswa.id_siswa
+JOIN 
+    subkategori_pelanggaran 
+ON 
+    pelanggaran.id_subkategori = subkategori_pelanggaran.id_subkategori
+JOIN 
+    admin 
+ON 
+    pelanggaran.admin_penginput = admin.id_admin
+WHERE pelanggaran.id_siswa = ${id}
+ORDER BY 
+    pelanggaran.tanggal DESC`;
+
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { inputPelanggaran, riwayatPelanggaran, detailpelanggaran };
