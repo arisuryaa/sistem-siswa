@@ -1,8 +1,12 @@
+<div class="">
+  <input id="kelas" name="kelas" type="hidden" value="<%= JSON.stringify(pointKelas) %>" />
+</div>
+
 <div class="flex items-center justify-between px-8 py-6 bg-white rounded-md shadow-shadowcus">
   <div class="flex flex-col">
     <div class="flex flex-col gap-1 pb-5">
       <h1 class="text-3xl font-medium text-secondary">Selamat Datang <%= username %></h1>
-      <p class="font-light text-slate-600">ABYASAD DHARYATI VIDYA</p>
+      <p class="font-light text-slate-600" id="1">ABYASAD DHARYATI VIDYA</p>
     </div>
     <div class="flex items-center gap-3">
       <a href="/pelanggaran" class="px-3 py-2 text-sm text-white transition-all rounded-md shadow-lg bg-primary hover:bg-secondary">Input Pelanggaran</a>
@@ -38,6 +42,11 @@
     </div>
     <div class="swiper-scrollbar"></div>
   </div>
+</div>
+
+<div class="px-5 pb-32 mt-10">
+  <h1 class="pb-2 text-lg font-medium text-secondary">Kelas Dengan Siswa Yang Paling Banyak Melanggar :</h1>
+  <canvas id="myChart" class="" width="100%"></canvas>
 </div>
 
 <% if (result === true ) { %>

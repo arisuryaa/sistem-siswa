@@ -2,11 +2,14 @@ const express = require("express");
 const router = express.Router();
 
 const { siswaByPoint } = require("../controller/datasiswa");
+const { pointKelas } = require("../controller/dataKelas");
 
 router.get("/", async (req, res) => {
   try {
     const data = await siswaByPoint();
-    res.render("dashboard", { title: "dashboard", username: req.session.username, data: data, result: false });
+    const point = await pointKelas();
+    console.log(point);
+    res.render("dashboard", { title: "dashboard", username: req.session.username, data: data, result: false, pointKelas: point });
   } catch (err) {
     res.send(err);
   }
