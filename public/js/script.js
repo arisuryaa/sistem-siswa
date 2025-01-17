@@ -173,21 +173,14 @@ document.addEventListener("DOMContentLoaded", () => {
 console.log("JS LOADED3");
 
 const kelas = JSON.parse(document.querySelector("#kelas").value);
-// const totalPoint = document.querySelector("#totalPoint").value;
-// const jumlahSiswa = document.querySelector("#jumlahSiswa").value;
-// const pointDibawah100 = document.querySelector("#pointDibawah100").value;
-console.log(kelas);
-
-const newKelas = kelas.map((e) => {
-  e.kelas;
-});
-console.log(newKelas);
-
+const namaKelas = kelas.map((e) => e.kelas);
+const jumlahMelanggar = kelas.map((e) => e.siswa_point_dibawah_100);
+const siswaKelas = kelas.map((e) => e.siswa_point_dibawah_100);
 const data = {
-  labels: ["XII RPL 3", "XIIRPL2", "XOIRPL4", "MM1", "XITBSM2", "XI TKJ1", "XIIMM2"],
+  labels: namaKelas,
   datasets: [
     {
-      data: [22, 19, 3, 5, 2, 3, 8, 9],
+      data: jumlahMelanggar,
       backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(255, 159, 64, 0.2)"],
       borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)", "rgba(255, 159, 64, 1)"],
       borderWidth: 1,

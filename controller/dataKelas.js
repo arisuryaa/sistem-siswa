@@ -11,7 +11,8 @@ JOIN kelas ON siswa.id_kelas = kelas.id_kelas
 JOIN jurusan ON siswa.id_jurusan = jurusan.id_jurusan
 JOIN subkelas ON siswa.id_subkelas = subkelas.id_subkelas
 GROUP BY siswa.id_kelas, siswa.id_jurusan, siswa.id_subkelas, kelas.kelas, jurusan.nama_jurusan, subkelas.subkelas
-ORDER BY SUM(siswa.point) ASC;`;
+ORDER BY siswa_point_dibawah_100 DESC
+LIMIT 5;`;
 
   return new Promise((resolve, reject) => {
     db.query(sql, (err, result) => {
