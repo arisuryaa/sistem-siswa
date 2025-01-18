@@ -199,6 +199,11 @@ const config = {
     },
     scales: {
       y: {
+        ticks: {
+          callback: function (value) {
+            return Math.round(value); // Membulatkan nilai ke bilangan bulat
+          },
+        },
         beginAtZero: true,
       },
     },

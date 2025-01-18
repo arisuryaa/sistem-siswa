@@ -53,7 +53,9 @@ const detailSiswa = (id) => {
 };
 
 const siswaByPoint = () => {
-  const sql = `SELECT * FROM siswa
+  const sql = `SELECT  id_siswa,nama,nis,email,nama_wali,kontak_wali,kelas,nama_jurusan,subkelas,nomor_absen,point FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas
+  JOIN jurusan ON siswa.id_jurusan = jurusan.id_jurusan
+  JOIN subkelas ON siswa.id_subkelas = subkelas.id_subkelas 
 ORDER BY point ASC
 LIMIT 5;
 `;

@@ -29,7 +29,6 @@ router.post("/nis", async (req, res) => {
     const data = await siswaByNis(nis);
     const jenispelanggaran = await allJenispelanggaran();
     res.render("input-pelanggaran", { title: "input-pelanggaran", data: data[0], jenispelanggaran: jenispelanggaran });
-    console.log(data[0]);
   } catch (err) {
     res.status(500).send("Terjadi kesalahan: " + err);
   }

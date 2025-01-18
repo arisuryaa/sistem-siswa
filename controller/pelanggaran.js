@@ -1,4 +1,6 @@
 const db = require("../config/db");
+const { createFile } = require("./filePDF");
+const { detailSiswa } = require("./datasiswa");
 
 const admin = (username) => {
   const sql = `SELECT * FROM admin WHERE username = '${username}' `;
@@ -16,13 +18,17 @@ const admin = (username) => {
 const inputPelanggaran = async (alldata) => {
   const { data, session } = alldata;
 
+  const siswa = await detailSiswa(data.id_siswa);
+  const id_admin = await admin(session);
   const point = Number(data.point);
   const penguranganPoint = Number(data.pengurangan_point);
+  let newPoint = 0;
+  if (point > penguranganPoint) {
+    newPoint += point - penguranganPoint;
+  } else {
+    createFile(siswa[0]);
+  }
 
-  const newPoint = point < penguranganPoint ? 0 : point - penguranganPoint;
-
-  const id_admin = await admin(session);
-  console.log(id_admin[0].id_admin);
   const updatePoint = `UPDATE siswa
   SET point = '${newPoint}'
   WHERE id_siswa = '${data.id_siswa}' `;
@@ -38,8 +44,10 @@ const inputPelanggaran = async (alldata) => {
       } else {
         db.query(sql, (err, result) => {
           if (err) {
+            console.log(`Pelanggaran GAGAL Di Input!`);
             reject(err);
           } else {
+            console.log(`Pelanggaran Berhasil Di Input!`);
             resolve(true);
           }
         });

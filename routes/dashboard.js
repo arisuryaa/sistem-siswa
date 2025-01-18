@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
   try {
     const data = await siswaByPoint();
     const point = await pointKelas();
-    console.log(point);
+
     res.render("dashboard", { title: "dashboard", username: req.session.username, data: data, result: false, pointKelas: point });
   } catch (err) {
     res.send(err);
