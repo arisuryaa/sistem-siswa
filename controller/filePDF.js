@@ -4,6 +4,14 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 
 const createFile = (data) => {
+  const today = new Date();
+
+  const day = today.getDate();
+  const month = today.getMonth();
+  const year = today.getFullYear();
+
+  monthName = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
   const doc = new PDFDocument();
   const folderPath = "suratPemanggilan";
 
@@ -24,7 +32,7 @@ const createFile = (data) => {
 
   doc.moveDown(10);
 
-  doc.font("Times-Roman").fontSize(12).text("Denpasar, 19 Januari 2025", { align: "right" });
+  doc.font("Times-Roman").fontSize(12).text(`Denpasar, ${day} ${monthName[month]} ${year}`, { align: "right" });
 
   doc.moveDown();
   doc.font("Times-Roman").fontSize(12).text("Nomor     : B.10.400.3/463/SMKN1DPS").text("Lampiran  : 1 lampiran").text("Hal       : Pemanggilan Orang Tua Siswa");
@@ -48,11 +56,11 @@ const createFile = (data) => {
     .moveDown(1)
     .text(`Kami berharap Bapak/Ibu dapat hadir pada:`)
     .moveDown(0.5)
-    .text(`Hari/Tanggal: [Tanggal Pemanggilan]`)
+    .text(`Tanggal: ${day + 1} ${monthName[month]}`)
     .moveDown(0.5)
-    .text(`Pukul: [Waktu Pemanggilan]`)
+    .text(`Pukul: 09:00 - 12:00`)
     .moveDown(0.5)
-    .text(`Tempat: [Lokasi Pemanggilan, misalnya: Ruang BK atau Ruang Kepala Sekolah]`)
+    .text(`Tempat: Ruang BK SMK Negeri 1 Denpasar`)
     .moveDown(2)
     .text(`Kehadiran Bapak/Ibu sangat penting untuk memberikan solusi terbaik bagi perkembangan anak kami, serta untuk memastikan bahwa kejadian serupa tidak terulang di masa depan.`)
     .moveDown(0.5)

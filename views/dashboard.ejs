@@ -44,9 +44,17 @@
   </div>
 </div>
 
-<div class="px-5 pb-32 mt-10">
+<div class="px-5 pb-10 mt-10">
   <h1 class="pb-2 text-lg font-medium text-secondary">Kelas Dengan Siswa Yang Paling Banyak Melanggar :</h1>
   <canvas id="myChart" class="" width="100%"></canvas>
+</div>
+
+<div class="mt-8">
+  <h1 class="pb-2 text-lg font-medium text-secondary">Catatan :</h1>
+  <p class="text-sm">
+    Setiap siswa akan diberikan 100 poin sebagai saldo awal. Setiap kali siswa melakukan pelanggaran, poin mereka akan dikurangi sesuai dengan besaran pelanggaran yang dilakukan. Apabila poin siswa
+    mencapai 0, sistem secara otomatis akan membuat dan mengirimkan surat panggilan kepada orang tua/wali siswa terkait. Sebaliknya, siswa dapat menambah poin dengan prestasi yang mereka lakukan.
+  </p>
 </div>
 
 <% if (result === true ) { %>
