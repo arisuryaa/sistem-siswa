@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   const id = data.id_siswa;
   const result = await editSiswa(data);
   const dataDetail = await detailSiswa(id);
-  res.render("detailsiswa", { title: "detail-siswa", data: dataDetail[0] });
+  res.render("detailsiswa", { title: "detail-siswa", data: dataDetail[0], result: true });
 });
 
 module.exports = router;
