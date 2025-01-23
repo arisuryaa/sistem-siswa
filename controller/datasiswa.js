@@ -87,4 +87,32 @@ const siswaByNis = (nis) => {
   });
 };
 
-module.exports = { datajurusan, dataSiswa, detailSiswa, siswaByPoint, siswaByNis };
+const editSiswa = (data) => {
+  console.log(data.id_siswa);
+  const sql = `UPDATE siswa
+SET 
+    nama = '${data.nama}',
+    nomor_absen = '${data.absen}',
+    nis = '${data.nis}',
+    email = '${data.email}',
+    no_telp = '${data.no_telp}',
+    nama_wali = '${data.nama_wali}',
+    kontak_wali = '${data.kontak_wali}',
+    point = '${data.point}',
+    alamat = '${data.alamat}'
+WHERE 
+    id_siswa = '${data.id_siswa}';
+`;
+  return new Promise((resolve, reject) => {
+    db.query(sql, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        console.log("berhasil");
+        resolve(result);
+      }
+    });
+  });
+};
+
+module.exports = { datajurusan, dataSiswa, detailSiswa, siswaByPoint, siswaByNis, editSiswa };

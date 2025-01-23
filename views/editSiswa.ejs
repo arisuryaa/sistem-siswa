@@ -1,0 +1,105 @@
+<div class="flex gap-2 mb-5 text-sm">
+  <a href="/pelanggaran" class="text-blue-500">Detail-Siswa</a>
+  <a href="/inputpelanggaran">/ Edit-Siswa </a>
+</div>
+
+<div class="mt-8">
+  <h1 class="text-2xl font-medium text-secondary">Edit Siswa</h1>
+  <p class="pt-2 text-sm font-light">Atas Nama</p>
+</div>
+
+<div class="flex items-center justify-between px-8 py-5 mt-8 bg-white rounded-md shadow-shadowcus">
+  <div class="flex gap-5">
+    <div class="">
+      <img src="/img/ucok.svg" class="w-24" alt="" />
+    </div>
+    <div class="flex flex-col justify-between gap-1">
+      <div class="flex flex-col gap-1">
+        <h1 class="text-lg"><%= data.nama %></h1>
+        <p class="text-sm font-light"><%= data.kelas %> <%= data.nama_jurusan %> <%= data.subkelas %></p>
+        <p class="text-sm font-light"><%= data.nis %></p>
+      </div>
+      <p class="text-sm">Total Point : <%= data.point %></p>
+    </div>
+  </div>
+  <div class="">
+    <a href="" class="px-4 py-2 text-white transition-all bg-black rounded-md hover:bg-slate-900">Ganti Foto</a>
+  </div>
+</div>
+
+<div class="px-8 py-8 mt-6 bg-white rounded-lg shadow-shadowcus">
+  <h1 class="text-xl">Edit Informasi Siswa</h1>
+  <form action="/editsiswa" method="post" id="editSiswa">
+    <div class="flex flex-col gap-2 mt-5">
+      <label for="nama">Nama : </label>
+      <input type="text" name="nama" id="" placeholder="Masukkan Nama" value="<%= data.nama %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+    </div>
+    <div class="flex justify-between">
+      <div class="flex flex-col gap-2 mt-5 w-[30%]">
+        <label for="nama">Absen : </label>
+        <input type="text" name="absen" id="" placeholder="Masukkan Absen" value="<%= data.nomor_absen %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+        <input type="hidden" name="id_siswa" value="<%= data.id_siswa %>" id="" />
+      </div>
+      <div class="flex flex-col gap-2 mt-5 w-[30%]">
+        <label for="nama">NIS : </label>
+        <input type="text" name="nis" id="" placeholder="Masukkan NIS" value="<%= data.nis %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+      <div class="flex flex-col gap-2 mt-5 w-[30%]">
+        <label for="nama">Email : </label>
+        <input type="text" name="email" id="" placeholder="Masukkan Email" value="<%= data.email %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <div class="flex flex-col gap-2 mt-5 w-[30%]">
+        <label for="nama">Kelas : </label>
+        <input type="text" name="kelas" id="" placeholder="Masukkan kelas" value="<%= data.kelas %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+      <div class="flex flex-col gap-2 mt-5 w-[30%]">
+        <label for="nama">Jurusan : </label>
+        <input type="text" name="jurusan" id="" placeholder="Masukkan Jurusan" value="<%= data.nama_jurusan %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+      <div class="flex flex-col gap-2 mt-5 w-[30%]">
+        <label for="nama">Subkelas : </label>
+        <input type="text" name="subkelas" id="" placeholder="Masukkan Subkelas" value="<%= data.subkelas %>" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+    </div>
+    <div class="flex justify-between mt-5">
+      <div class="w-[30%] flex flex-col gap-2">
+        <label for="">No Telp :</label>
+        <input type="text" name="no_telp" placeholder="Masukkan No Telp" value="<%= data.no_telp %>" name="" id="" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+      <div class="w-[65%] gap-2 flex flex-col">
+        <label for="">Alamat :</label>
+        <input type="text" name="alamat" placeholder="Masukkan Alamat" value="<%= data.alamat %>" class="w-full px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+    </div>
+    <div class="flex justify-between mt-5">
+      <div class="w-[30%] flex flex-col gap-2">
+        <label for="">Nama Wali :</label>
+        <input type="text" name="nama_wali" placeholder="Masukkan Nama Wali" value="<%= data.nama_wali %>" name="" id="" class="px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+      <div class="w-[65%] gap-2 flex flex-col">
+        <label for="">Kontak Wali :</label>
+        <input type="text" name="kontak_wali" placeholder="Masukkan Kontak Wali" value="<%= data.kontak_wali %>" class="w-full px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+    </div>
+    <div class="mt-5">
+      <div class="flex flex-col gap-2 w-[30%]">
+        <label for="">Total Point :</label>
+        <input type="text" name="point" value="<%= data.point %>" class="w-full px-4 py-2 border rounded-lg border-slate-600" />
+      </div>
+    </div>
+    <!-- <button type="submit" class="px-6 py-2 mt-8 text-white bg-blue-500 rounded-md shadow-shadowcus">Update</button> -->
+    <button type="button" class="px-6 py-2 mt-8 text-white bg-blue-500 rounded-md shadow-shadowcus" id="openModalButton">Konfirmasi</button>
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-xl font-bold text-secondary">Konfirmasi</h3>
+        <p class="py-4">Apakah Anda yakin ingin menyimpan data ini?</p>
+        <div class="modal-action">
+          <button type="button" class="btn" id="submitFormButton">Simpan</button>
+          <button type="button" class="btn" id="closeModalButton">Batal</button>
+        </div>
+      </div>
+    </dialog>
+  </form>
+</div>

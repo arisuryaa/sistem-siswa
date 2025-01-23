@@ -147,6 +147,7 @@ const openModal = (id_subkategori, point) => {
 };
 
 const form = document.getElementById("prestasiForm");
+const formEdit = document.getElementById("editSiswa");
 const modal = document.getElementById("my_modal_1");
 const openModalButton = document.getElementById("openModalButton");
 const submitFormButton = document.getElementById("submitFormButton");
@@ -167,6 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event untuk submit form
   submitFormButton.addEventListener("click", () => {
     form.submit(); // Kirim form secara manual
+  });
+
+  submitFormButton.addEventListener("click", () => {
+    formEdit.submit();
   });
 });
 
