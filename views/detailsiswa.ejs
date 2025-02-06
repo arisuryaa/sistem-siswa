@@ -59,11 +59,10 @@
             />
           </div>
           <div class="flex flex-col gap-1">
-            <label>Aksi :</label>
+            <label>Riwayat :</label>
             <div class="flex items-center gap-2">
               <a href="/detailpelanggaran/<%= data.id_siswa %>" class="px-3 py-2 text-sm text-white transition-all bg-red-500 rounded-lg hover:bg-red-700">Pelanggaran</a>
               <a href="/detailprestasi/<%= data.id_siswa %>" class="px-3 py-2 text-sm text-white transition-all bg-green-500 rounded-lg hover:bg-green-700">Prestasi</a>
-              <a href="/editsiswa/<%= data.id_siswa %>" class="px-3 py-2 text-sm text-white transition-all bg-green-700 rounded-lg hover:bg-green-900">Edit</a>
             </div>
           </div>
         </div>
@@ -105,6 +104,13 @@
             />
           </div>
           <div class="flex flex-col gap-1">
+            <label>Aksi :</label>
+            <div class="flex items-center gap-2">
+              <a href="/editsiswa/<%= data.id_siswa %>" class="px-3 py-2 text-sm text-white transition-all rounded-lg bg-primary hover:bg-secondary">Edit Siswa</a>
+              <a href="/editsiswa/<%= data.id_siswa %>" class="px-3 py-2 text-sm text-white transition-all rounded-lg bg-primary hover:bg-secondary">Hapus Siswa</a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1 mb-4">
             <label for="kelas" class="font-medium text-secondary">Total Point :</label>
             <input
               type="text"
