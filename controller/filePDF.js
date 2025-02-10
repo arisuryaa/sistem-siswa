@@ -87,6 +87,9 @@ async function sendEmail(data) {
   // Konfigurasi transport Gmail
   console.log(data.emailTo);
   const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465, // Gunakan port 587 jika tidak ingin SSL
+    secure: true,
     service: "gmail",
     auth: {
       user: "rambobuatemail228@gmail.com", // Ganti dengan email Anda

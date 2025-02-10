@@ -1,3 +1,4 @@
+<%- include('loading') %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="/css/output.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
-  <body class="overflow-x-hidden font-poppins">
+  <body id="body" class="overflow-x-hidden overflow-y-hidden font-poppins">
     <!-- sidebar -->
     <div class="fixed top-0 left-0 z-40 h-full p-4 transition-transform duration-500 border-r-2 w-60 bg-secondary sidebar-menu">
       <a href="#" class="flex items-center pb-2 border-b-2 border-white pt-14 xl:mt-6">
@@ -94,5 +95,20 @@
     <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
     <script src="https://kit.fontawesome.com/676adc8891.js" crossorigin="anonymous"></script>
     <script src="/js/script.js" defer></script>
+    <script>
+      function runLoadingAnimation() {
+        setTimeout(() => {
+          const loading = document.getElementById("loading");
+          const body = document.getElementById("body");
+          if (loading) {
+            loading.style.top = "-2000px";
+            loading.style.transition = "top 1.2s ease-in-out, opacity 0.5s ease";
+            body.style.overflowY = "auto";
+          }
+        }, 700);
+      }
+
+      document.addEventListener("DOMContentLoaded", runLoadingAnimation);
+    </script>
   </body>
 </html>
